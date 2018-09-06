@@ -45,19 +45,11 @@ def load_adversarial_task_data(data, batch_size, validate=False):
 	"""
 	if data == "mnist":
 
-		if validate:
-			data_loader = torch.utils.data.DataLoader(
-				datasets.MNIST('../data', train=False, download=True,
-					transform=transforms.Compose([
-						transforms.ToTensor()])),
-				batch_size=batch_size, shuffle=True)
-		else:
-
-			data_loader = torch.utils.data.DataLoader(
-			datasets.MNIST('../data', train=True, download=True,
+		data_loader = torch.utils.data.DataLoader(
+			datasets.MNIST('../data', train=(not validate), download=True,
 				transform=transforms.Compose([
 					transforms.ToTensor()])),
-			batch_size=batch_size, shuffle=True) 
+			batch_size=batch_size, shuffle=True)
 
 	elif data == "custom":
 		pass
@@ -207,7 +199,7 @@ def train(model, batch_size, if_cuda, data, epochs, retrain, pretrained_model):
 				data, target = data.cuda(), target.cuda()
 
 
-			#pass it thgough the model
+			#pass it through the model
 			output = adv_program(data)
 
 			#compute loss, backpropagate
