@@ -7,7 +7,7 @@ class ImageGenerator:
 	"""
 		Class to generate adversaril images.
 	"""
-	def __init__(self, bgcolor=(0,0,0), output_dir="output/", num_classes=10, num_squares=16):
+	def __init__(self, bgcolor=(0,0,0), output_dir="data/", num_classes=10, num_squares=16):
 		self.bgcolor = bgcolor
 		self.count = 0
 		self.out_dir = output_dir
@@ -54,15 +54,6 @@ class ImageGenerator:
 			self.count += 1
 
 def main():
-	
-	# img = Image.new('RGB', (36,36), color=(0,0,0))
-	# draw = ImageDraw.Draw(img)
-	# draw.rectangle([0,0,9,9], fill=(255,255,255), outline=(0,0,0))
-	# draw.rectangle([9,0,18,9], fill=(255,255,255), outline=(0,0,0))
-	# draw.rectangle([18,0,27,9], fill=(255,255,255), outline=(0,0,0))
-	# draw.rectangle([27,0,36,9], fill=(255,255,255), outline=(0,0,0))
-	# img.save('test.jpg')
-
 	generator = ImageGenerator()
 	generator.generate()
 
