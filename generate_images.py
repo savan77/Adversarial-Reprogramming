@@ -5,7 +5,7 @@ import numpy.random as rdn
 
 class ImageGenerator:
 	"""
-		Class to generate adversaril images.
+		Class to generate adversarial task images as mentioned in the paper.
 	"""
 	def __init__(self, bgcolor=(0,0,0), output_dir="data/", num_classes=10, num_squares=16):
 		self.bgcolor = bgcolor
